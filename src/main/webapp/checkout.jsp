@@ -437,9 +437,11 @@ function selectPayment(optId) {
     document.getElementById(optId).classList.add('selected');
 }
 
-document.getElementById('placeOrderBtn').addEventListener('click', function() {
-    this.textContent = '⏳ Placing Order...';
-    this.disabled = true;
+document.getElementById('checkoutForm').addEventListener('submit', function() {
+    const btn = document.getElementById('placeOrderBtn');
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Placing Order...';
+    btn.style.pointerEvents = 'none';
+    btn.style.opacity = '0.7';
 });
 </script>
 
