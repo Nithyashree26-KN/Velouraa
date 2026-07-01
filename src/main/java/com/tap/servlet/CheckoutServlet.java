@@ -101,7 +101,7 @@ public class CheckoutServlet extends HttpServlet {
         // Clear cart after successful order
         cartDAO.clearCart(cartId);
 
-        // Show success toast via redirect with query param
-        resp.sendRedirect("orderHistory?success=true");
+        // Show success page
+        resp.sendRedirect("orderPlaced.jsp?orderId=" + orderId);
     }
 }
