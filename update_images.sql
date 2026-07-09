@@ -31,3 +31,33 @@ UPDATE menu SET ImageURL = 'https://images.unsplash.com/photo-1589301760014-d929
 UPDATE menu SET ImageURL = 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=600' WHERE MenuID = 102;
 UPDATE menu SET ImageURL = 'https://images.unsplash.com/photo-1548345680-f5475ea5df84?w=600' WHERE MenuID = 103;
 UPDATE menu SET ImageURL = 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600' WHERE MenuID = 104;
+
+-- =====================================================================
+-- FIX: Replace wrong images for Garlic Bread items (woman photo removed)
+-- Real garlic bread food photos from Unsplash
+-- NOTE: Disable safe update mode so WHERE on non-key column is allowed
+-- =====================================================================
+
+-- Disable safe update mode temporarily
+SET SQL_SAFE_UPDATES = 0;
+
+-- Fix "Cheese Garlic Bread" – replace woman photo with actual cheese garlic bread
+UPDATE menu
+SET ImageURL = 'https://images.unsplash.com/photo-1619531042059-6e90b14b2a33?w=600&fit=crop&q=80'
+WHERE ItemName LIKE '%Cheese Garlic Bread%';
+
+-- Fix "Garlic Bread" (plain) – ensure it also has a correct food photo
+UPDATE menu
+SET ImageURL = 'https://images.unsplash.com/photo-1573140247632-f8fd74997d5c?w=600&fit=crop&q=80'
+WHERE ItemName LIKE '%Garlic Bread%'
+  AND ItemName NOT LIKE '%Cheese%';
+
+-- Re-enable safe update mode
+SET SQL_SAFE_UPDATES = 1;
+
+-- =====================================================================
+-- SAFETY NET: Update any item whose current image URL resolves to a
+-- known wrong/non-food photo used on Unsplash for portraits.
+-- Add more portrait photo hashes here if discovered in future.
+-- =====================================================================
+-- (No additional rows known at this time — add if new bad URLs are found)

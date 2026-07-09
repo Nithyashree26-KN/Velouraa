@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velouraa | Premium Food Delivery</title>
+    <title>FreshFetch | Premium Food Delivery</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
@@ -864,7 +864,7 @@
     <!-- NAVBAR -->
     <nav>
         <a href="#" class="logo">
-            <span>ðŸ•</span> Velouraa
+            <span>ðŸ•</span> FreshFetch
         </a>
 
         <ul class="nav-links">
@@ -913,7 +913,7 @@
         <div class="search-container">
             <i class="fa-solid fa-magnifying-glass"></i>
             <input type="text" id="restaurant-search" placeholder="Search for restaurants, cuisines, or locations...">
-            <button class="search-btn">Find Food</button>
+            <button class="search-btn" onclick="filterRestaurants()">Find Food</button>
         </div>
 
         <div class="filters-container">
@@ -1128,8 +1128,8 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
-                <h2>ðŸ• <span>Velouraa</span></h2>
-                <p>Velouraa Express delivers your favorite cuisines straight from the finest culinary spaces to your doorstep in minutes. Experience premium food delivery.</p>
+                <h2>ðŸ• <span>FreshFetch</span></h2>
+                <p>FreshFetch Express delivers your favorite cuisines straight from the finest culinary spaces to your doorstep in minutes. Experience premium food delivery.</p>
             </div>
             <div class="footer-column">
                 <h4>Contact Us</h4>
@@ -1150,7 +1150,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p class="copyright">&copy; 2026 Velouraa. All rights reserved.</p>
+            <p class="copyright">&copy; 2026 FreshFetch. All rights reserved.</p>
             <div class="social-icons">
                 <a href="#"><i class="fa-brands fa-facebook"></i></a>
                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
@@ -1336,7 +1336,7 @@
                 return;
             }
 
-            alert('ðŸŽ‰ Order placed successfully! Thank you for ordering from Velouraa Express.');
+            alert('ðŸŽ‰ Order placed successfully! Thank you for ordering from FreshFetch Express.');
             cart = [];
             saveCart();
             closeCart();

@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velouraa | Premium Food Delivery</title>
+    <title>FreshFetch | Premium Food Delivery</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
@@ -425,6 +425,18 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
             gap: 32px;
+        }
+
+        /* Anchor wrappers are direct grid children — must be block so grid places them correctly */
+        .restaurants-grid > a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Card fills its anchor wrapper completely */
+        .restaurants-grid > a .restaurant-card {
+            height: 100%;
         }
 
         /* Card Styles */
@@ -1013,7 +1025,7 @@
     <!-- NAVBAR -->
     <nav>
         <a href="<%= request.getContextPath() %>/home" class="logo">
-            <span>🍕</span> Velouraa
+            <span>🍕</span> FreshFetch
         </a>
 
         <ul class="nav-links">
@@ -1082,7 +1094,7 @@
         <div class="search-container">
             <i class="fa-solid fa-magnifying-glass"></i>
             <input type="text" id="restaurant-search" placeholder="Search for restaurants, cuisines, or locations...">
-            <button class="search-btn">Find Food</button>
+            <button class="search-btn" onclick="filterRestaurants()">Find Food</button>
         </div>
 
         <div class="filters-container">
@@ -1245,8 +1257,8 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
-                <h2>🍕 <span>Velouraa</span></h2>
-                <p>Velouraa Express delivers your favorite cuisines straight from the finest culinary spaces to your doorstep in minutes. Experience premium food delivery.</p>
+                <h2>🍕 <span>FreshFetch</span></h2>
+                <p>FreshFetch Express delivers your favorite cuisines straight from the finest culinary spaces to your doorstep in minutes. Experience premium food delivery.</p>
             </div>
             <div class="footer-column">
                 <h4>Contact Us</h4>
@@ -1267,7 +1279,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p class="copyright">&copy; 2026 Velouraa. All rights reserved.</p>
+            <p class="copyright">&copy; 2026 FreshFetch. All rights reserved.</p>
             <div class="social-icons">
                 <a href="#"><i class="fa-brands fa-facebook"></i></a>
                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
@@ -1477,6 +1489,8 @@
                 const time = parseInt(card.dataset.time);
                 const price = parseInt(card.dataset.price);
                 const restId = parseInt(card.querySelector('.fav-btn').dataset.id);
+                // The card is wrapped in an <a> tag which is the direct grid child
+                const wrapper = card.closest('a') || card;
 
                 let matchesSearch = name.includes(query) || cuisine.includes(query);
                 let matchesFilter = true;
@@ -1495,8 +1509,12 @@
                 }
 
                 if (matchesSearch && matchesFilter && matchesFavorites) {
+                    // Show both wrapper and inner card
+                    wrapper.style.display = '';
                     card.style.display = 'flex';
                 } else {
+                    // Hide the wrapper so the grid slot is freed up — keeps cards adjacent
+                    wrapper.style.display = 'none';
                     card.style.display = 'none';
                 }
             });

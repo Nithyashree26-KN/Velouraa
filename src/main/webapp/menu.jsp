@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Restaurant Menu – Velouraa</title>
+<title>Restaurant Menu – FreshFetch</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -324,7 +324,7 @@ if (allMenusByRestaurant != null && !allMenusByRestaurant.isEmpty()) {
 
 <!-- TOP NAVBAR -->
 <nav class="top-nav">
-    <a href="<%= request.getContextPath() %>/home" class="nav-logo"><span>🍕</span> Velouraa</a>
+    <a href="<%= request.getContextPath() %>/home" class="nav-logo"><span>🍕</span> FreshFetch</a>
     <div class="nav-right">
         <a href="#" class="nav-icon-btn" id="menu-fav-btn" title="Favourites">
             <i class="fa-regular fa-heart"></i> Saved

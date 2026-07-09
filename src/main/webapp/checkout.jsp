@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Checkout – Velouraa</title>
+<title>Checkout – FreshFetch</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -303,7 +303,7 @@ double total = subtotal + deliveryFee;
 
 <!-- TOP NAVBAR -->
 <nav class="top-nav">
-    <a href="<%= request.getContextPath() %>/home" class="nav-logo"><span>🍕</span> Velouraa</a>
+    <a href="<%= request.getContextPath() %>/home" class="nav-logo"><span>🍕</span> FreshFetch</a>
     <div class="nav-right">
         <a href="<%= request.getContextPath() %>/home" class="nav-icon-btn"><i class="fa-solid fa-house"></i> Home</a>
         <a href="<%= request.getContextPath() %>/cart" class="nav-icon-btn"><i class="fa-solid fa-basket-shopping"></i> Cart</a>
